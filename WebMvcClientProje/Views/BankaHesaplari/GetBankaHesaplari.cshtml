@@ -1,0 +1,48 @@
+﻿@model BankaHesaplari
+@{
+    Layout = "_Layout"; ViewBag.Title = "BANKA HESABI ARAMA";
+}
+
+<h2>ARAMA <a asp-action="Index" class="btn btn-sm btn-primary">GERİ</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">BankaHesapID:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">BANKA HESABI ARAMA</button>
+    </div>
+</form>
+
+@if (Model != null && Model.BankaHesapID != 0)
+{
+    <h2>Banka Hesapları</h2>
+    <table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+        <thead>
+            <tr>
+                <th>BankaHesapID</th>
+                <th>BankaID</th>
+                <th>HesapSahibi</th>
+                <th>HesapKurTip</th>
+                <th>HesapNo</th>
+                <th>IbanNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BankaHesapID</td>
+                <td>@Model.BankaID</td>
+                <td>@Model.HesapSahibi</td>
+                <td>@Model.HesapKurTip</td>
+                <td>@Model.HesapNo</td>
+                <td>@Model.IbanNo</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else if (Model != null && Model.BankaHesapID == 0)
+{
+    <div class="text-center">
+        <h1>Arama sayfası</h1>
+    </div>
+}

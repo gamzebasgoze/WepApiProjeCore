@@ -1,0 +1,48 @@
+﻿@model Taksitler
+@{
+    Layout = "_Layout"; ViewBag.Title = "TAKSİTLER ARAMA";
+}
+
+<h2>ARAMA <a asp-action="Index" class="btn btn-sm btn-primary">GERİ</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">TaksitID:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">TAKSİTLER ARAMA</button>
+    </div>
+</form>
+
+@if (Model != null && Model.TaksitID != 0)
+{
+    <h2>Taksitler</h2>
+    <table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+        <thead>
+            <tr>
+                <th>TaksitID</th>
+                <th>BankaID</th>
+                <th>Taksit</th>
+                <th>EkTaksit</th>
+                <th>VadeFarki</th>
+                <th>Aciklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.TaksitID</td>
+                <td>@Model.BankaID</td>
+                <td>@Model.Taksit</td>
+                <td>@Model.EkTaksit</td>
+                <td>@Model.VadeFarki</td>
+                <td>@Model.Aciklama</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else if (Model != null && Model.TaksitID == 0)
+{
+    <div class="text-center">
+        <h1>Arama sayfası</h1>
+    </div>
+}

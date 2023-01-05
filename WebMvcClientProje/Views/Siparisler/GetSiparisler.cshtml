@@ -1,0 +1,50 @@
+﻿@model Siparisler
+@{
+    Layout = "_Layout"; ViewBag.Title = "SİPARİŞ ARAMA";
+}
+
+<h2>ARAMA <a asp-action="Index" class="btn btn-sm btn-primary">GERİ</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">SiparislerID:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">BANKA ARAMA</button>
+    </div>
+</form>
+
+@if (Model != null && Model.SiparislerID != 0)
+{
+    <h2>Siparisler</h2>
+    <table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+        <thead>
+            <tr>
+                <th>SiparislerID</th>
+                <th>UyeID</th>
+                <th>SiparisTipi</th>
+                <th>SiparisTarih</th>
+                <th>Adet</th>
+                <th>Tutar</th>
+                <th>Aciklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.SiparislerID</td>
+                <td>@Model.UyeID</td>
+                <td>@Model.SiparisTipi</td>
+                <td>@Model.SiparisTarih</td>
+                <td>@Model.Adet</td>
+                <td>@Model.Tutar</td>
+                <td>@Model.Aciklama</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else if (Model != null && Model.SiparislerID == 0)
+{
+    <div class="text-center">
+        <h1>Arama sayfası</h1>
+    </div>
+}

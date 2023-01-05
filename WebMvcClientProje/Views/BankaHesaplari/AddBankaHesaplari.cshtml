@@ -1,0 +1,74 @@
+﻿@model BankaHesaplari
+@{
+    Layout = "_Layout"; ViewBag.Title = "Banka Hesabı ekle";
+}
+
+<h2>Banka Hesabı ekleme<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+
+<form asp-action="AddBankaHesaplari">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="BankaID">Banka ID:</label>
+        <input asp-for="BankaID" class="form-control" />
+        <span asp-validation-for="BankaID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HesapSahibi">Hesap Sahibi:</label>
+        <input asp-for="HesapSahibi" class="form-control" />
+        <span asp-validation-for="HesapSahibi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HesapKurTip">Hesap Kur Tipi:</label>
+        <input asp-for="HesapKurTip" class="form-control" />
+        <span asp-validation-for="HesapKurTip" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="HesapNo">Hesap No:</label>
+        <input asp-for="HesapNo" class="form-control" />
+        <span asp-validation-for="HesapNo" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="IbanNo">Iban Mo:</label>
+        <input asp-for="IbanNo" class="form-control" />
+        <span asp-validation-for="IbanNo" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Hesap Ekle</button>
+    </div>
+</form>
+<br />
+<br />
+<form asp-action="AddBankaHesaplari" method="get">
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary" align="right">Temizle</button>
+    </div>
+</form>
+
+
+@if (Model != null)
+{
+    <h2>Banka Hesaplari</h2>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr colspan="2">
+                <th>BankaID</th>
+                <th>HesapSahibi</th>
+                <th>HesapKurTip</th>
+                <th>HesapNo</th>
+                <th>IbanNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BankaID</td>
+                <td>@Model.HesapSahibi</td>
+                <td>@Model.HesapKurTip</td>
+                <td>@Model.HesapNo</td>
+                <td>@Model.IbanNo</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert-info">HESAP EKLENDİ!!!</div>
+}

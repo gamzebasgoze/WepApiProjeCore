@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Bankalar>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Bankalar";
+}
+
+<h2>Bankalar Sayfası</h2>
+<a asp-action="AddBankalar" class="btn btn-sm btn-primary">Banka Ekle</a>
+<a asp-action="GetBankalar" class="btn btn-sm btn-secondary">Banka Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>BankaID</th>
+            <th>BankaAdi</th>
+            <th>BankaLogo</th>
+            <th>Aktif</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bankalar in Model)
+        {
+            <tr>
+                <td>@bankalar.BankaID</td>
+                <td>@bankalar.BankaAdi</td>
+                <td>@bankalar.BankaLogo</td>
+                <td>@bankalar.Aktif</td>
+                <td>
+                    <a asp-action="UpdateBankalar" asp-route-id="@bankalar.BankaID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteBankalar" method="post">
+                        <input type="hidden" value="@bankalar.BankaID" name="BankaID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

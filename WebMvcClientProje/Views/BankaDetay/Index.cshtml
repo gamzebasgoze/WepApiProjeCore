@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BankaDetay>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All BankaDetay";
+}
+
+<h2>Banka Detay Sayfası</h2>
+<a asp-action="AddBankaDetay" class="btn btn-sm btn-primary">Banka Detay Ekle</a>
+<a asp-action="GetBankaDetay" class="btn btn-sm btn-secondary">Detay Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>BankaDetayID</th>
+            <th>BankaID</th>
+            <th>KullaniciAdi</th>
+            <th>Sifre</th>
+            <th>MagazaNo</th>
+            <th>Host</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bankadetay in Model)
+        {
+            <tr>
+                <td>@bankadetay.BankaDetayID</td>
+                <td>@bankadetay.BankaID</td>
+                <td>@bankadetay.KullaniciAdi</td>
+                <td>@bankadetay.Sifre</td>
+                <td>@bankadetay.MagazaNo</td>
+                <td>@bankadetay.Host</td>
+                <td>
+                    <a asp-action="UpdateBankaDetay" asp-route-id="@bankadetay.BankaDetayID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteBankaDetay" method="post">
+                        <input type="hidden" value="@bankadetay.BankaDetayID" name="BankaDetayID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

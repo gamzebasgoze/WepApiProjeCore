@@ -1,0 +1,40 @@
+﻿@model OdemeTip
+@{
+    Layout = "_Layout"; ViewBag.Title = "ÖDEME TİP ARAMA";
+}
+
+<h2>ARAMA <a asp-action="Index" class="btn btn-sm btn-primary">GERİ</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">OdemeID:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">BANKA ARAMA</button>
+    </div>
+</form>
+
+@if (Model != null && Model.OdemeID != 0)
+{
+    <h2>Ödeme Tip</h2>
+    <table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+        <thead>
+            <tr>
+                <th>OdemeID</th>
+                <th>OdemeTip</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.OdemeID</td> 
+                <td>@Model.OdemeTipi</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else if (Model != null && Model.OdemeID == 0)
+{
+    <div class="text-center">
+        <h1>Arama sayfası</h1>
+    </div>
+}

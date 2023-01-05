@@ -1,0 +1,22 @@
+﻿@model OdemeTip
+@{
+    Layout = "_Layout"; ViewBag.Title = "Update Ödeme Tipi";
+}
+
+<h2>Update Ödeme Tipi<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+<form method="post" asp-action="UpdateOdemeTip">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="OdemeID"></label>
+        <input class="form-control" asp-for="OdemeID" />
+        <span asp-validation-for="OdemeID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OdemeTipi"></label>
+        <input class="form-control" asp-for="OdemeTipi" />
+        <span asp-validation-for="OdemeTipi" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Güncelle</button>
+    </div>
+</form>

@@ -1,0 +1,51 @@
+﻿@model Siparisler
+@{
+    Layout = "_Layout"; ViewBag.Title = "Update Siparisler";
+}
+
+<h2>Sipariş Güncelleme Sayfası<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+<form method="post" asp-action="UpdateSiparisler">
+    <div class="text-danger" asp-validation-summary="All"></div>
+   
+    
+    <div class="form-group">
+        <label asp-for="SiparislerID"></label>
+        <input class="form-control" asp-for="SiparislerID" />
+        <span asp-validation-for="SiparislerID" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="UyeID"></label> 
+        <span asp-validation-for="UyeID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SiparisTipi"></label>
+        <input class="form-control" asp-for="SiparisTipi" />
+        <span asp-validation-for="SiparisTipi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SiparisTarih"></label>
+        <input class="form-control" asp-for="SiparisTarih" />
+        <span asp-validation-for="SiparisTarih" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adet"></label>
+        <input class="form-control" asp-for="Adet" />
+        <span asp-validation-for="Adet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tutar"></label>
+        <input class="form-control" asp-for="Tutar" />
+        <span asp-validation-for="Tutar" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="Aciklama"></label>
+        <input class="form-control" asp-for="Aciklama" />
+        <span asp-validation-for="Aciklama" class="text-danger"></span>
+    </div>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Güncelle</button>
+    </div>
+</form>

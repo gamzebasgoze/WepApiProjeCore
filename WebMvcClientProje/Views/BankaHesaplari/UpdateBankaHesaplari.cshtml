@@ -1,0 +1,43 @@
+﻿@model BankaHesaplari
+@{
+    Layout = "_Layout"; ViewBag.Title = "Update Banka Hesapları";
+}
+
+<h2>Update Banka Hesaplari<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+<form method="post" asp-action="UpdateBankaHesaplari">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="BankaHesapID"></label>
+        <input class="form-control" asp-for="BankaHesapID" />
+        <span asp-validation-for="BankaHesapID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BankaID"></label>
+        <input class="form-control" asp-for="BankaID" />
+        <span asp-validation-for="BankaID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HesapSahibi"></label>
+        <input class="form-control" asp-for="HesapSahibi" />
+        <span asp-validation-for="HesapSahibi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HesapKurTip"></label>
+        <input class="form-control" asp-for="HesapKurTip" />
+        <span asp-validation-for="HesapKurTip" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="HesapNo"></label>
+        <input class="form-control" asp-for="HesapNo" />
+        <span asp-validation-for="HesapNo" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="IbanNo"></label>
+        <input class="form-control" asp-for="IbanNo" />
+        <span asp-validation-for="IbanNo" class="text-danger"></span>
+    </div>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Güncelle</button>
+    </div>
+</form>

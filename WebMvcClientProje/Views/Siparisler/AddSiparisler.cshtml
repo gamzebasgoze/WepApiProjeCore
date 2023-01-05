@@ -1,0 +1,81 @@
+﻿@model Siparisler
+@{
+    Layout = "_Layout"; ViewBag.Title = "Sipariş ekle";
+}
+
+<h2>Sipariş ekleme<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+
+<form asp-action="AddSiparisler">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="UyeID">Üye ID:</label>
+        <input asp-for="UyeID" class="form-control" />
+        <span asp-validation-for="UyeID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SiparisTipi">Sipariş Tipi:</label>
+        <input asp-for="SiparisTipi" class="form-control" />
+        <span asp-validation-for="SiparisTipi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SiparisTarih">Sipariş Tarihi:</label>
+        <input asp-for="SiparisTarih" class="form-control" />
+        <span asp-validation-for="SiparisTarih" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="Adet">Adet:</label>
+        <input asp-for="Adet" class="form-control" />
+        <span asp-validation-for="Adet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tutar">Tutar:</label>
+        <input asp-for="Tutar" class="form-control" />
+        <span asp-validation-for="Tutar" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Aciklama">Açıklama:</label>
+        <input asp-for="Aciklama" class="form-control" />
+        <span asp-validation-for="Aciklama" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Kaydet</button>
+    </div>
+</form>
+<br />
+<br />
+<form asp-action="AddSiparisler" method="get">
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary" align="right">Temizle</button>
+    </div>
+</form>
+
+
+@if (Model != null)
+{
+    <h2>Siparisler</h2>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr colspan="2">
+                <th>UyeID</th>
+                <th>SiparisTipi</th>
+                <th>SiparisTarih</th>
+                <th>Adet</th>
+                <th>Tutar</th>
+                <th>Aciklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.UyeID</td>
+                <td>@Model.SiparisTipi</td>
+                <td>@Model.SiparisTarih</td>
+                <td>@Model.Adet</td>
+                <td>@Model.Tutar</td>
+                <td>@Model.Aciklama</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert-info">SİPARİŞ EKLENDİ!!!</div>
+}

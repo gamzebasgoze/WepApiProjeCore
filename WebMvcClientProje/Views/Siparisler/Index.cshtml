@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Siparisler>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Siparisler";
+}
+
+<h2>Siparişler Sayfası</h2>
+<a asp-action="AddSiparisler" class="btn btn-sm btn-primary">Sipariş Ekle</a>
+<a asp-action="GetSiparisler" class="btn btn-sm btn-secondary">Sipariş Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>SiparislerID</th>
+            <th>UyeID</th>
+            <th>SiparisTipi</th>
+            <th>SiparisTarih</th>
+            <th>Adet</th>
+            <th>Tutar</th>
+            <th>Aciklama</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var siparisler in Model)
+        {
+            <tr>
+                <td>@siparisler.SiparislerID</td>
+                <td>@siparisler.UyeID</td>
+                <td>@siparisler.SiparisTipi</td>
+                <td>@siparisler.SiparisTarih</td>
+                <td>@siparisler.Adet</td>
+                <td>@siparisler.Tutar</td>
+                <td>@siparisler.Aciklama</td>
+                <td>
+                    <a asp-action="UpdateSiparisler" asp-route-id="@siparisler.SiparislerID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteSiparisler" method="post">
+                        <input type="hidden" value="@siparisler.SiparislerID" name="SiparislerID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

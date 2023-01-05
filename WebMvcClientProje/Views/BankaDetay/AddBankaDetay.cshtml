@@ -1,0 +1,75 @@
+﻿@model BankaDetay
+@{
+    Layout = "_Layout"; ViewBag.Title = "Banka Detay ekle";
+}
+
+<h2>Detay ekleme<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+
+<form asp-action="AddBankaDetay">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="BankaID">Banka ID:</label>
+        <input asp-for="BankaID" class="form-control" />
+        <span asp-validation-for="BankaID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="KullaniciAdi">Kullanıcı Adı:</label>
+        <input asp-for="KullaniciAdi" class="form-control" />
+        <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sifre">Şifre:</label>
+        <input asp-for="Sifre" class="form-control" />
+        <span asp-validation-for="Sifre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MagazaNo">Mağaza No:</label>
+        <input asp-for="MagazaNo" class="form-control" />
+        <span asp-validation-for="MagazaNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Host">Host:</label>
+        <input asp-for="Host" class="form-control" />
+        <span asp-validation-for="Host" class="text-danger"></span>
+    </div>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Kaydet</button>
+    </div>
+</form>
+<br />
+<br />
+<form asp-action="AddBankaDetay" method="get">
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary" align="right">Temizle</button>
+    </div>
+</form>
+
+
+@if (Model != null)
+{
+    <h2>Banka Detay</h2>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr colspan="2">
+                <th>BankaID</th>
+                <th>KullaniciAdi</th>
+                <th>Sifre</th>
+                <th>MagazaNo</th>
+                <th>Host</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.BankaID</td>
+                <td>@Model.KullaniciAdi</td>
+                <td>@Model.Sifre</td>
+                <td>@Model.MagazaNo</td>
+                <td>@Model.Host</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert-info">BANKA DETAYI EKLENDİ!!!</div>
+}

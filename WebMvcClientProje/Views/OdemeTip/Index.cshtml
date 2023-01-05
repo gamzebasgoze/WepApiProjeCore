@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OdemeTip>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Bankalar";
+}
+
+<h2>Ödeme Tipi Sayfası</h2>
+<a asp-action="AddOdemeTip" class="btn btn-sm btn-primary">Ödeme Tipi Ekle</a>
+<a asp-action="GetOdemeTip" class="btn btn-sm btn-secondary">Ödeme Tipi Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>OdemeID</th>
+            <th>OdemeTipi</th>
+           <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var odemetip in Model)
+        {
+            <tr>
+                <td>@odemetip.OdemeID</td>
+                <td>@odemetip.OdemeTipi</td>
+                <td>
+                    <a asp-action="UpdateOdemeTip" asp-route-id="@odemetip.OdemeID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteOdemeTip" method="post">
+                        <input type="hidden" value="@odemetip.OdemeID" name="OdemeID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

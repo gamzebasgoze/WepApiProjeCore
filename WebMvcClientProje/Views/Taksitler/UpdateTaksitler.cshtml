@@ -1,0 +1,43 @@
+﻿@model Taksitler
+@{
+    Layout = "_Layout"; ViewBag.Title = "Update Taksitler";
+}
+
+<h2>Update Taksitler<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+<form method="post" asp-action="UpdateTaksitler">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="TaksitID"></label>
+        <input class="form-control" asp-for="TaksitID" />
+        <span asp-validation-for="TaksitID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BankaID"></label>
+        <input class="form-control" asp-for="BankaID" />
+        <span asp-validation-for="BankaID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Taksit"></label>
+        <input class="form-control" asp-for="Taksit" />
+        <span asp-validation-for="Taksit" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EkTaksit"></label>
+        <input class="form-control" asp-for="EkTaksit" />
+        <span asp-validation-for="EkTaksit" class="text-danger"></span>
+    </div>
+        <div class="form-group">
+        <label asp-for="VadeFarki"></label>
+        <input class="form-control" asp-for="VadeFarki" />
+        <span asp-validation-for="VadeFarki" class="text-danger"></span>
+    </div>
+
+        <div class="form-group">
+        <label asp-for="Aciklama"></label>
+        <input class="form-control" asp-for="Aciklama" />
+        <span asp-validation-for="Aciklama" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Güncelle</button>
+    </div>
+</form>

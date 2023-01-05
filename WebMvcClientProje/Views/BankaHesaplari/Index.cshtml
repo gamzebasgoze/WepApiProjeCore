@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BankaHesaplari>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All BankaHesaplari";
+}
+
+<h2>Banka Hesapları Sayfası</h2>
+<a asp-action="AddBankaHesaplari" class="btn btn-sm btn-primary">Banka Hesap Ekle</a>
+<a asp-action="GetBankaHesaplari" class="btn btn-sm btn-secondary">Banka Hesap Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>BankaHesapID</th>
+            <th>BankaID</th>
+            <th>HesapSahibi</th>
+            <th>HesapKurTip</th>
+            <th>HesapNo</th>
+            <th>IbanNo</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bankahesaplari in Model)
+        {
+            <tr>
+                <td>@bankahesaplari.BankaHesapID</td>
+                <td>@bankahesaplari.BankaID</td>
+                <td>@bankahesaplari.HesapSahibi</td>
+                <td>@bankahesaplari.HesapKurTip</td>
+                <td>@bankahesaplari.HesapNo</td>
+                <td>@bankahesaplari.IbanNo</td>
+                <td>
+                    <a asp-action="UpdateBankaHesaplari" asp-route-id="@bankahesaplari.BankaHesapID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteBankaHesaplari" method="post">
+                        <input type="hidden" value="@bankahesaplari.BankaHesapID" name="BankaHesapID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

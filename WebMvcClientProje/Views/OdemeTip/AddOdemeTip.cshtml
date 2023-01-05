@@ -1,0 +1,46 @@
+﻿@model OdemeTip
+@{
+    Layout = "_Layout"; ViewBag.Title = "Ödeme Tipi ekle";
+}
+
+<h2>Ödeme Tipi ekleme<a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+
+<form asp-action="AddOdemeTip">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="OdemeTipi">Ödeme Tipi:</label>
+        <input asp-for="OdemeTipi" class="form-control" />
+        <span asp-validation-for="OdemeTipi" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Ödeme Tipi Ekle</button>
+    </div>
+</form>
+<br />
+<br />
+<form asp-action="AddOdemeTip" method="get">
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary" align="right">Temizle</button>
+    </div>
+</form>
+
+
+@if (Model != null)
+{
+    <h2>Ödeme Tipi</h2>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr colspan="2">
+                <th>OdemeTipi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.OdemeTipi</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert-info">ÖDEME TİPİ EKLENDİ!!!</div>
+}

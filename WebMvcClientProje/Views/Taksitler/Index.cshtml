@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Taksitler>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Bankalar";
+}
+
+<h2>Taksitler Sayfası</h2>
+<a asp-action="AddTaksitler" class="btn btn-sm btn-primary">Taksit Ekle</a>
+<a asp-action="GetTaksitler" class="btn btn-sm btn-secondary">Taksit Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>TaksitID</th>
+            <th>BankaID</th>
+            <th>Taksit</th>
+            <th>EkTaksit</th>
+            <th>VadeFarki</th>
+            <th>Aciklama</th>
+           <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var taksitler in Model)
+        {
+            <tr>
+                <td>@taksitler.TaksitID</td>
+                <td>@taksitler.BankaID</td>
+                <td>@taksitler.Taksit</td>
+                <td>@taksitler.EkTaksit</td>
+                <td>@taksitler.VadeFarki</td>
+                <td>@taksitler.Aciklama</td>
+                <td>
+                    <a asp-action="UpdateTaksitler" asp-route-id="@taksitler.TaksitID">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteTaksitler" method="post">
+                        <input type="hidden" value="@taksitler.BankaID" name="TaksitID" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
