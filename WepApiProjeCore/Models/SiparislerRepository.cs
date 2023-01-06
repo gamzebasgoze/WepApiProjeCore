@@ -122,6 +122,7 @@ namespace WepApiProjeCore.Models
                     SqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
+                        siparisler.SiparislerID = Convert.ToInt32(rdr["SiparislerID"]);
                         siparisler.UyeID = Convert.ToInt32(rdr["UyeID"]);
                         siparisler.SiparisTipi = rdr["SiparisTipi"].ToString();
                         siparisler.SiparisTarih = rdr["SiparisTarih"].ToString();
